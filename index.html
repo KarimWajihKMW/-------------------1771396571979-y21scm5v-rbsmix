@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أكوادرا للطيران - رحلتك تبدأ هنا</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Cairo', sans-serif;
+      }
+      .fade-in {
+        animation: fadeIn 0.5s ease-in-out;
+      }
+      .slide-up {
+        animation: slideUp 0.6s ease-out;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      @keyframes slideUp {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #818cf8;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #6366f1;
+      }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 min-h-screen text-gray-800">
+    
+    <!-- Navbar -->
+    <nav class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center gap-2">
+                        <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                        <span class="text-2xl font-bold text-indigo-900 tracking-tight">أكوادرا للطيران</span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <button class="text-gray-500 hover:text-indigo-600 transition-colors">تسجيل الدخول</button>
+                    <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-all shadow-md hover:shadow-lg">حجوزاتي</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 py-8 space-y-12">
+
+        <!-- SEARCH SECTION (HERO) -->
+        <div id="search-section" class="slide-up">
+            <div class="text-center mb-10">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 mb-4">
+                    اكتشف العالم بأسعار خيالية
+                </h1>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    قارن بين مئات الرحلات الجوية واحجز تذكرتك في ثوانٍ. وجهتك القادمة بانتظارك.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-2xl p-6 md:p-8 border border-indigo-50 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-500"></div>
+                
+                <form id="flight-search-form" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Origin -->
+                    <div class="group">
+                        <label class="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-1">
+                            <svg class="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            من (المغادرة)
+                        </label>
+                        <select id="from-location" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all outline-none group-hover:border-indigo-300 cursor-pointer">
+                            <option value="RUH">الرياض (RUH)</option>
+                            <option value="JED">جدة (JED)</option>
+                            <option value="DMM">الدمام (DMM)</option>
+                            <option value="DXB">دبي (DXB)</option>
+                            <option value="LHR">لندن (LHR)</option>
+                        </select>
+                    </div>
+
+                    <!-- Destination -->
+                    <div class="group">
+                        <label class="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-1">
+                            <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            إلى (الوصول)
+                        </label>
+                        <select id="to-location" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all outline-none group-hover:border-purple-300 cursor-pointer">
+                            <option value="DXB">دبي (DXB)</option>
+                            <option value="CAI">القاهرة (CAI)</option>
+                            <option value="IST">إسطنبول (IST)</option>
+                            <option value="PAR">باريس (CDG)</option>
+                            <option value="NYC">نيويورك (JFK)</option>
+                        </select>
+                    </div>
+
+                    <!-- Date -->
+                    <div class="group">
+                        <label class="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-1">
+                            <svg class="w-4 h-4 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                            تاريخ السفر
+                        </label>
+                        <input type="date" id="flight-date" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all outline-none group-hover:border-pink-300">
+                    </div>
+
+                    <!-- Class -->
+                    <div class="group">
+                        <label class="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-1">
+                            <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                            الدرجة
+                        </label>
+                        <select id="flight-class" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all outline-none group-hover:border-green-300 cursor-pointer">
+                            <option value="economy">سياحية</option>
+                            <option value="business">رجال الأعمال</option>
+                            <option value="first">الدرجة الأولى</option>
+                        </select>
+                    </div>
+
+                    <!-- Search Button -->
+                    <div class="md:col-span-2 lg:col-span-4 mt-2">
+                        <button type="submit" class="w-full bg-gradient-to-l from-indigo-600 to-purple-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl hover:scale-[1.01] active:scale-95 transition-all duration-300 flex items-center justify-center gap-3">
+                            <svg class="w-6 h-6 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                            ابحث عن الرحلات
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- RESULTS SECTION (Initially Hidden) -->
+        <div id="results-section" class="hidden fade-in space-y-6">
+            <div class="flex justify-between items-center">
+                <h2 class="text-2xl font-bold text-gray-800">نتائج البحث</h2>
+                <button onclick="resetSearch()" class="text-indigo-600 hover:text-indigo-800 font-medium text-sm flex items-center gap-1">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    عودة للبحث
+                </button>
+            </div>
+
+            <!-- Filters / Info -->
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex flex-wrap gap-4 text-sm text-gray-600">
+                <span id="result-info-route" class="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full"></span>
+                <span id="result-info-date" class="bg-purple-50 text-purple-700 px-3 py-1 rounded-full"></span>
+                <span id="result-info-class" class="bg-green-50 text-green-700 px-3 py-1 rounded-full"></span>
+            </div>
+
+            <!-- Flight List Container -->
+            <div id="flights-container" class="space-y-4">
+                <!-- Flights will be injected here via JS -->
+            </div>
+        </div>
+
+        <!-- PASSENGER DETAILS SECTION (Initially Hidden) -->
+        <div id="passenger-section" class="hidden fade-in">
+             <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">بيانات المسافرين</h2>
+                <button onclick="backToResults()" class="text-indigo-600 hover:text-indigo-800 font-medium text-sm flex items-center gap-1">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    تغيير الرحلة
+                </button>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Summary Card -->
+                <div class="md:col-span-1 order-2 md:order-1">
+                    <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 sticky top-24">
+                        <h3 class="font-bold text-gray-800 mb-4 border-b pb-2">ملخص الرحلة</h3>
+                        <div id="selected-flight-summary" class="space-y-3">
+                            <!-- Selected flight details go here -->
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-gray-100">
+                            <div class="flex justify-between font-bold text-lg text-indigo-700">
+                                <span>الإجمالي:</span>
+                                <span id="total-price-display">0 SAR</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="md:col-span-2 order-1 md:order-2">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                        <form id="passenger-form" class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">الاسم الأول</label>
+                                    <input type="text" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">اسم العائلة</label>
+                                    <input type="text" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">رقم جواز السفر / الهوية</label>
+                                <input type="text" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">البريد الإلكتروني</label>
+                                <input type="email" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none">
+                            </div>
+
+                            <button type="submit" class="w-full bg-green-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:bg-green-700 hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                                تأكيد الحجز والدفع
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONFIRMATION (Hidden) -->
+        <div id="confirmation-section" class="hidden fade-in text-center py-12">
+            <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">تم الحجز بنجاح!</h2>
+            <p class="text-gray-600 mb-8">شكراً لك. تم إرسال تذاكر الطيران إلى بريدك الإلكتروني.</p>
+            <button onclick="resetApp()" class="bg-indigo-600 text-white px-8 py-3 rounded-full hover:bg-indigo-700 transition-all">
+                العودة للصفحة الرئيسية
+            </button>
+        </div>
+
+        <!-- LEGACY CONTENT (Preserved) -->
+        <div class="mt-20 pt-10 border-t border-gray-200 opacity-80">
+             <div class="max-w-md w-full text-center p-6 mx-auto">
+                <h1 class="text-xl font-bold text-slate-400 mb-4 tracking-tight">منطقة المطورين (أكوادرا القديمة)</h1>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300 cursor-pointer card group">
+                    <div class="w-10 h-10 bg-indigo-50 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-indigo-100 transition-colors">
+                         <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                    </div>
+                    <h2 class="text-lg font-semibold text-gray-900 mb-1">بطاقة التجربة الأصلية</h2>
+                    <p class="text-gray-500 text-xs">هذا العنصر موجود للحفاظ على الوظائف السابقة.</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
